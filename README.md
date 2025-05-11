@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
   
   ![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/jack-portfolio)
@@ -54,3 +55,6 @@ If you want to contact with me you can reach me at [Twitter](https://www.twitter
 ### License
 
 This project is **free to use** and does not contains any license.
+=======
+# MyPortfolio
+>>>>>>> 0b3150abaeca29cd89042dabc84903b6baabecf3
