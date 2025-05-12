@@ -47,20 +47,28 @@ navToggleBtn.addEventListener("click", function () {
 
 
 /**
- * skills toggle
+ * Skills and Tools Toggle Functionality
  */
 
+// Select the toggle buttons and the sections
 const toggleBtnBox = document.querySelector("[data-toggle-box]");
 const toggleBtns = document.querySelectorAll("[data-toggle-btn]");
 const skillsBox = document.querySelector("[data-skills-box]");
+const toolsBox = document.querySelector("[data-tools-box]");
 
+// Add event listeners to toggle buttons
 for (let i = 0; i < toggleBtns.length; i++) {
   toggleBtns[i].addEventListener("click", function () {
+    // Check which button was clicked (Skills or Tools)
+    const isSkillsActive = toggleBtns[i].textContent.trim() === "Skills";
 
-    elemToggleFunc(toggleBtnBox);
-    for (let i = 0; i < toggleBtns.length; i++) { elemToggleFunc(toggleBtns[i]); }
-    elemToggleFunc(skillsBox);
+    // Update the active class for buttons
+    toggleBtns.forEach(btn => btn.classList.remove("active"));
+    toggleBtns[i].classList.add("active");
 
+    // Toggle the visibility of the sections
+    skillsBox.style.display = isSkillsActive ? "block" : "none";
+    toolsBox.style.display = isSkillsActive ? "none" : "block";
   });
 }
 
