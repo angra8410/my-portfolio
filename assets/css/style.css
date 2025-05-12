@@ -463,7 +463,7 @@ body.active { overflow: hidden; }
 main { overflow-x: hidden; }
 
 .hero {
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -473,8 +473,8 @@ main { overflow-x: hidden; }
 }
 
 .hero-banner {
-  max-width: 500px;
-  width: 125%;
+  max-width: 300px;
+  width: 95%;
   margin-bottom: 30px;
 }
 
