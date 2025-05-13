@@ -474,8 +474,11 @@ main { overflow-x: hidden; }
 
 .hero-banner {
   max-width: 500px;
-  width: 125%;
+  width: 100%;
+  height: auto;
   margin-bottom: 30px;
+  display: block;
+  margin: 0 auto;
 }
 
 :is(.hero-social-list, .scroll-down) { display: none; }
