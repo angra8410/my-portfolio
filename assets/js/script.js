@@ -199,35 +199,43 @@ document.addEventListener('DOMContentLoaded', function() {
  * internationalization
  */
 function setLanguage(language) {
-  const elements = document.querySelectorAll('[data-i18n]');
-  elements.forEach(element => {
+  // Update all elements with data-i18n attribute
+  document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
     if (translations[language] && translations[language][key]) {
-      // Handle placeholder attributes
-      if (element.placeholder) {
-        element.placeholder = translations[language][key];
-      } else {
-        element.textContent = translations[language][key];
-      }
+      element.textContent = translations[language][key];
     }
   });
 
-  // Update form placeholders
-  document.querySelector('[name="from_name"]').placeholder = translations[language]['form-placeholder-name'];
-  document.querySelector('[name="from_email"]').placeholder = translations[language]['form-placeholder-email'];
-  document.querySelector('[name="from_phone"]').placeholder = translations[language]['form-placeholder-phone'];
-  document.querySelector('[name="message"]').placeholder = translations[language]['form-placeholder-message'];
+  // Update all elements with data-i18n-placeholder attribute
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+    const key = element.getAttribute('data-i18n-placeholder');
+    if (translations[language] && translations[language][key]) {
+      element.placeholder = translations[language][key];
+    }
+  });
 
   // Store the selected language
   localStorage.setItem('preferred-language', language);
+
+  // Update HTML lang attribute
+  document.documentElement.lang = language;
 }
 
 // Language switcher event listener
-document.getElementById('lang').addEventListener('change', function() {
-  setLanguage(this.value);
-});
+document.addEventListener('DOMContentLoaded', function() {
+  const langSelector = document.getElementById('lang');
+  if (langSelector) {
+    langSelector.addEventListener('change', function() {
+      console.log('Language changed to:', this.value);
+      setLanguage(this.value);
+    });
 
-// Set initial language
-const savedLanguage = localStorage.getItem('preferred-language') || 'en';
-document.getElementById('lang').value = savedLanguage;
-setLanguage(savedLanguage);
+    // Set initial language
+    const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+    langSelector.value = savedLanguage;
+    setLanguage(savedLanguage);
+  } else {
+    console.error('Language selector not found');
+  }
+});

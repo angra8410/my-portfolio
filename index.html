@@ -49,7 +49,7 @@
 
         <select name="language" id="lang">
           <option value="en">En</option>
-          <option value="ar">Es</option>
+          <option value="es">Es</option>
         </select>
 
         <button class="theme-btn" aria-label="Change Theme" title="Change Theme" data-theme-btn>
@@ -174,7 +174,7 @@
               </div>
 
               <h2 class="h2 card-title">
-                4+ <strong>Years of Experience</strong>
+                4+ <strong data-i18n="stats-experience">Years of Experience</strong>
               </h2>
 
               <ion-icon name="chevron-forward-outline"></ion-icon>
@@ -220,11 +220,11 @@
 
         <div class="about-content section-content">
 
-          <p class="section-subtitle">About me</p>
+          <p class="section-subtitle" data-i18n="about-subtitle">About me</p>
 
-          <h2 class="h3 section-title">Do you need some Reports or an analysis? I can Help You!</h2>
+          <h2 class="h3 section-title" data-i18n="about-title">Do you need some Reports or an analysis? I can Help You!</h2>
 
-          <p class="section-text">
+          <p class="section-text" data-i18n="about-text">
             Hi! I'm Antonio, a data enthusiast driven by the desire to 
             uncover insights and empower organizations through data-driven decision-making. 
             With a strong foundation in analytical tools and techniques, I specialize in transforming 
@@ -234,10 +234,10 @@
 
           <div class="btn-group">
             <!-- "Hire Me" button -->
-            <a href="#contact" class="btn btn-secondary">Hire Me</a>
+            <a href="#contact" class="btn btn-secondary" data-i18n="about-hire">Hire Me</a>
 
             <!-- "Download CV" button -->
-            <a href="assets/downloads/resume_antonio_gutierrez_amaranto,_data_analyst.pdf" class="btn btn-primary" download>Download CV</a>
+            <a href="assets/downloads/resume_antonio_gutierrez_amaranto,_data_analyst.pdf" class="btn btn-primary" download data-i18n="about-cv">Download CV</a>
         </div>
 
         </div>
@@ -674,9 +674,9 @@
         </div>
 
                 <form class="contact-form" id="contact-form" novalidate>          <div class="form-wrapper">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label" data-i18n="form-name">Name</label>
             <div class="input-wrapper">
-              <input type="text" name="from_name" id="name" required placeholder="e.g John Doe" class="input-field">
+              <input type="text" name="from_name" id="name" required data-i18n-placeholder="form-placeholder-name" placeholder="e.g John Doe" class="input-field">
               <ion-icon name="person-circle"></ion-icon>
             </div>
           </div>
