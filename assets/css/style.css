@@ -367,8 +367,13 @@ body.active { overflow: hidden; }
   color: var(--white);
 }
 
-.lang-toggle[data-lang-box] .toggle-btn:last-child.active ~ .lang-toggle::before {
+.lang-toggle .toggle-btn:last-child.active ~ .lang-toggle::before {
   left: 45px;
+}
+
+.lang-toggle .toggle-btn:last-child.active + .lang-toggle::before,
+.lang-toggle .toggle-btn:last-child.active ~ .lang-toggle::before {
+  left: calc(100% - 40px);
 }
 
 .navbar-actions select {

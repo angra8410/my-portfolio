@@ -94,14 +94,28 @@ for (let i = 0; i < langBtns.length; i++) {
       }
     });
 
-    // Set the language
+    // Get the language value and update
     const lang = this.getAttribute("value");
-    document.documentElement.setAttribute("lang", lang);
-    
-    // Update translations if needed
-    updateTranslations(lang);
+    setLanguage(lang);
   });
 }
+
+// Set initial language on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+  
+  // Set active state on the correct button
+  langBtns.forEach(btn => {
+    if (btn.getAttribute("value") === savedLanguage) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+  
+  // Set the language
+  setLanguage(savedLanguage);
+});
 
 /**
  * dark & light theme toggle
@@ -246,21 +260,3 @@ function setLanguage(language) {
   // Update HTML lang attribute
   document.documentElement.lang = language;
 }
-
-// Language switcher event listener
-document.addEventListener('DOMContentLoaded', function() {
-  const langSelector = document.getElementById('lang');
-  if (langSelector) {
-    langSelector.addEventListener('change', function() {
-      console.log('Language changed to:', this.value);
-      setLanguage(this.value);
-    });
-
-    // Set initial language
-    const savedLanguage = localStorage.getItem('preferred-language') || 'en';
-    langSelector.value = savedLanguage;
-    setLanguage(savedLanguage);
-  } else {
-    console.error('Language selector not found');
-  }
-});
