@@ -347,7 +347,7 @@ body.active { overflow: hidden; }
   top: 5px;
   left: 5px;
   bottom: 5px;
-  width: 35px;
+  width: 32px;
   background: var(--raw-seinna);
   border-radius: 100px;
   transition: var(--transition-1);
@@ -355,13 +355,15 @@ body.active { overflow: hidden; }
 }
 
 .lang-toggle.active::before {
-  left: 45px;
+  left: calc(50% + 2px);
 }
 
 .lang-toggle .toggle-btn {
   color: var(--color-primary);
   font-family: var(--ff-poppins);
-  padding: 5px 15px;
+  padding: 5px 12px;
+  min-width: 42px;
+  text-align: center;
   transition: var(--transition-1);
   position: relative;
   z-index: 1;
