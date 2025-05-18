@@ -120,16 +120,10 @@ if (localStorage.getItem("theme") === "light_theme") {
  * contact form
  */
 
-window.onload = function() {
-  // Initialize EmailJS
-  emailjs.init({
-    publicKey: "WUwT4rzcyJX7RPNOk",
-    blockHeadless: false,
-    limitRate: {
-      throttle: 10000
-    }
-  });
+// Initialize EmailJS
+emailjs.init("WUwT4rzcyJX7RPNOk");
 
+document.addEventListener('DOMContentLoaded', function() {
   // Get the contact form
   const contactForm = document.getElementById('contact-form');
   if (!contactForm) {
@@ -137,7 +131,6 @@ window.onload = function() {
     return;
   }
 
-  // Handle form submission
   contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
     console.log("Form submission started");
@@ -148,7 +141,7 @@ window.onload = function() {
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    // Get form data for debugging
+    // Get form data
     const templateParams = {
       from_name: this.querySelector('[name="from_name"]').value,
       from_email: this.querySelector('[name="from_email"]').value,
@@ -162,20 +155,16 @@ window.onload = function() {
     emailjs.send('service_yifcdby', 'template_dgv7l6q', templateParams)
       .then(function(response) {
         console.log("SUCCESS!", response.status, response.text);
-        // Show success message
         alert('Message sent successfully!');
-        // Reset form
         contactForm.reset();
       })
       .catch(function(error) {
         console.error("FAILED...", error);
-        // Show detailed error message
-        alert('Failed to send message: ' + (error.text || 'Unknown error. Please check the console for details.'));
+        alert('Failed to send message: ' + error.text);
       })
       .finally(function() {
-        // Reset button state
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
       });
   });
-};
+});
