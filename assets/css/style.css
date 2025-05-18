@@ -330,13 +330,25 @@ body.active { overflow: hidden; }
 }
 
 .navbar-actions select {
+  background: var(--bg-secondary);
   color: var(--color-primary);
-  width: 45px;
+  font-family: var(--ff-poppins);
+  padding: 5px 25px;
+  border-radius: 100px;
+  box-shadow: var(--shadow-1);
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+
+.navbar-actions select:hover {
+  color: var(--white);
+  background: var(--raw-seinna);
 }
 
 .navbar-actions option {
   background: var(--bg-primary);
   color: var(--color-primary);
+  padding: 10px;
 }
 
 .theme-btn {
