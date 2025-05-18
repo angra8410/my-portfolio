@@ -625,24 +625,45 @@ main { overflow-x: hidden; }
 
 .toggle-btn.active { color: var(--white); }
 
+.skills-box,
+.tools-box {
+  position: relative;
+  width: 100%;
+}
+
 .skills-box.active .skills-list,
-.skills-box .tools-list { display: none; }
+.skills-box .tools-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
 
 .skills-box .skills-list,
 .skills-box.active .tools-list {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 15px;
+  opacity: 1;
+  visibility: visible;
   animation: fadeIn 0.5s ease-out forwards;
 }
 
 @keyframes fadeIn {
-
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-
+  0% { 
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% { 
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .skill-card {
