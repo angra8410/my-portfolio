@@ -670,68 +670,43 @@
 
         </div>
 
-        <form action="" class="contact-form">
+        <form class="contact-form" id="contact-form">
 
           <div class="form-wrapper">
-
             <label for="name" class="form-label">Name</label>
-
             <div class="input-wrapper">
-
-              <input type="text" name="name" id="name" required placeholder="e.g John Doe" class="input-field">
-
+              <input type="text" name="from_name" id="name" required placeholder="e.g John Doe" class="input-field">
               <ion-icon name="person-circle"></ion-icon>
-
             </div>
-
           </div>
 
           <div class="form-wrapper">
-
             <label for="email" class="form-label">Email</label>
-
             <div class="input-wrapper">
-
-              <input type="email" name="email" id="email" required placeholder="e.g johndoe@mail.com"
+              <input type="email" name="from_email" id="email" required placeholder="e.g johndoe@mail.com"
                 class="input-field">
-
               <ion-icon name="mail"></ion-icon>
-
             </div>
-
           </div>
 
           <div class="form-wrapper">
-
             <label for="phone" class="form-label">Phone</label>
-
             <div class="input-wrapper">
-
-              <input type="tel" name="phone" id="phone" required placeholder="Phone Number" class="input-field">
-
+              <input type="tel" name="from_phone" id="phone" required placeholder="Phone Number" class="input-field">
               <ion-icon name="call"></ion-icon>
-
             </div>
-
           </div>
 
           <div class="form-wrapper">
-
             <label for="message" class="form-label">Message</label>
-
             <div class="input-wrapper">
-
               <textarea name="message" id="message" required placeholder="Write message..."
                 class="input-field"></textarea>
-
               <ion-icon name="chatbubbles"></ion-icon>
-
             </div>
-
           </div>
 
           <button type="submit" class="btn btn-primary">Send</button>
-
         </form>
 
       </section>
@@ -783,6 +758,9 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <!-- 
     - ionicon link

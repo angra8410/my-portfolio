@@ -115,3 +115,41 @@ if (localStorage.getItem("theme") === "light_theme") {
   document.body.classList.remove("light_theme");
   document.body.classList.add("dark_theme");
 }
+
+/**
+ * contact form
+ */
+
+// Initialize EmailJS with your public key
+(function() {
+  emailjs.init("HTMuORnzBGwneriD6"); // Replace with your actual public key
+})();
+
+// Handle form submission
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Show loading state
+  const submitBtn = this.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+
+  // Send the email using EmailJS
+  emailjs.sendForm('service_yifcdby', 'template_dgv7l6q', this)
+    .then(function() {
+      // Show success message
+      alert('Message sent successfully!');
+      // Reset form
+      document.getElementById('contact-form').reset();
+    }, function(error) {
+      // Show error message
+      alert('Failed to send message. Please try again.');
+      console.error('EmailJS error:', error);
+    })
+    .finally(function() {
+      // Reset button state
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    });
+});
