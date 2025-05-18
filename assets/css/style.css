@@ -621,9 +621,13 @@ main { overflow-x: hidden; }
   font-family: var(--ff-poppins);
   padding: 5px 25px;
   transition: var(--transition-1);
+  position: relative;
+  z-index: 1;
 }
 
-.toggle-btn.active { color: var(--white); }
+.toggle-btn.active {
+  color: var(--white);
+}
 
 .skills-box {
   position: relative;

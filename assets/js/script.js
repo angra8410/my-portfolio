@@ -65,10 +65,12 @@ for (let i = 0; i < toggleBtns.length; i++) {
       }
     });
 
-    // Toggle the skills box state
+    // Toggle the button box active state
     if (i === 1) { // Tools button clicked
+      toggleBtnBox.classList.add("active");
       skillsBox.classList.add("active");
     } else { // Skills button clicked
+      toggleBtnBox.classList.remove("active");
       skillsBox.classList.remove("active");
     }
   });
