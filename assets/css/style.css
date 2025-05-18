@@ -468,8 +468,8 @@ main { overflow-x: hidden; }
 }
 
 .hero-banner {
-  max-width: 500px;
-  width: 90%;
+  max-width: 400px;
+  width: 80%;
   margin-inline: auto;
   margin-bottom: 30px;
   border-radius: 50%;
