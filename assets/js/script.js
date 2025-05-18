@@ -121,7 +121,10 @@ if (localStorage.getItem("theme") === "light_theme") {
  */
 
 // Initialize EmailJS
-emailjs.init("WUwT4rzcyJX7RPNOk");
+(function() {
+  emailjs.init("WUwT4rzcyJX7RPNOk");
+  console.log("EmailJS initialized");
+})();
 
 document.addEventListener('DOMContentLoaded', function() {
   // Get the contact form
@@ -130,10 +133,25 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error("Contact form not found!");
     return;
   }
+  console.log("Contact form found:", contactForm);
+
+  // Remove the onsubmit="return false;" from the form
+  contactForm.removeAttribute('onsubmit');
 
   contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
     console.log("Form submission started");
+
+    // Validate form
+    const name = this.querySelector('[name="from_name"]').value.trim();
+    const email = this.querySelector('[name="from_email"]').value.trim();
+    const phone = this.querySelector('[name="from_phone"]').value.trim();
+    const message = this.querySelector('[name="message"]').value.trim();
+
+    if (!name || !email || !phone || !message) {
+      alert('Please fill in all fields');
+      return;
+    }
 
     // Show loading state
     const submitBtn = this.querySelector('button[type="submit"]');
@@ -143,10 +161,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Get form data
     const templateParams = {
-      from_name: this.querySelector('[name="from_name"]').value,
-      from_email: this.querySelector('[name="from_email"]').value,
-      from_phone: this.querySelector('[name="from_phone"]').value,
-      message: this.querySelector('[name="message"]').value,
+      from_name: name,
+      from_email: email,
+      from_phone: phone,
+      message: message,
       to_name: 'Antonio'
     };
     console.log("Form data:", templateParams);
