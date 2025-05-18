@@ -120,11 +120,16 @@ if (localStorage.getItem("theme") === "light_theme") {
  * contact form
  */
 
-// Initialize EmailJS
-(function() {
-  emailjs.init("WUwT4rzcyJX7RPNOk");
-  console.log("EmailJS initialized");
-})();
+// Wait for EmailJS to load
+window.addEventListener('load', function() {
+  if (typeof emailjs !== 'undefined') {
+    // Initialize EmailJS
+    emailjs.init("WUwT4rzcyJX7RPNOk");
+    console.log("EmailJS initialized");
+  } else {
+    console.error("EmailJS failed to load");
+  }
+});
 
 document.addEventListener('DOMContentLoaded', function() {
   // Get the contact form
@@ -135,12 +140,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   console.log("Contact form found:", contactForm);
 
-  // Remove the onsubmit="return false;" from the form
-  contactForm.removeAttribute('onsubmit');
-
   contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
     console.log("Form submission started");
+
+    // Check if EmailJS is loaded
+    if (typeof emailjs === 'undefined') {
+      alert('Email service is not available. Please try again later.');
+      return;
+    }
 
     // Validate form
     const name = this.querySelector('[name="from_name"]').value.trim();
