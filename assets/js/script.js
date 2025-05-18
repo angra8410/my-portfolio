@@ -123,7 +123,7 @@ if (localStorage.getItem("theme") === "light_theme") {
 window.onload = function() {
   // Initialize EmailJS
   emailjs.init({
-    publicKey: "HTMuORnzBGwneriD6",
+    publicKey: "WUwT4rzcyJX7RPNOk",
     blockHeadless: false, // Optional: set to true in production
     limitRate: { // Optional: set rate limits
       throttle: 10000, // 10s
