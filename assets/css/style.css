@@ -329,6 +329,48 @@ body.active { overflow: hidden; }
   margin-left: auto;
 }
 
+.lang-toggle {
+  background: var(--bg-secondary);
+  position: relative;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+}
+
+.lang-toggle::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  bottom: 5px;
+  width: 35px;
+  background: var(--raw-seinna);
+  border-radius: 100px;
+  transition: var(--transition-1);
+  z-index: -1;
+}
+
+.lang-toggle .toggle-btn {
+  color: var(--color-primary);
+  font-family: var(--ff-poppins);
+  padding: 5px 15px;
+  transition: var(--transition-1);
+  position: relative;
+  z-index: 1;
+}
+
+.lang-toggle .toggle-btn.active {
+  color: var(--white);
+}
+
+.lang-toggle[data-lang-box] .toggle-btn:last-child.active ~ .lang-toggle::before {
+  left: 45px;
+}
+
 .navbar-actions select {
   background: var(--bg-secondary);
   color: var(--color-primary);

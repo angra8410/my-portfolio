@@ -76,7 +76,32 @@ for (let i = 0; i < toggleBtns.length; i++) {
   });
 }
 
+/**
+ * language toggle
+ */
 
+const langBtns = document.querySelectorAll("[data-lang-btn]");
+const langBox = document.querySelector("[data-lang-box]");
+
+for (let i = 0; i < langBtns.length; i++) {
+  langBtns[i].addEventListener("click", function () {
+    // Toggle active state of buttons
+    langBtns.forEach((btn, index) => {
+      if (index === i) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+
+    // Set the language
+    const lang = this.getAttribute("value");
+    document.documentElement.setAttribute("lang", lang);
+    
+    // Update translations if needed
+    updateTranslations(lang);
+  });
+}
 
 /**
  * dark & light theme toggle
