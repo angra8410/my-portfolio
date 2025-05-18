@@ -194,3 +194,40 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 });
+
+/**
+ * internationalization
+ */
+function setLanguage(language) {
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (translations[language] && translations[language][key]) {
+      // Handle placeholder attributes
+      if (element.placeholder) {
+        element.placeholder = translations[language][key];
+      } else {
+        element.textContent = translations[language][key];
+      }
+    }
+  });
+
+  // Update form placeholders
+  document.querySelector('[name="from_name"]').placeholder = translations[language]['form-placeholder-name'];
+  document.querySelector('[name="from_email"]').placeholder = translations[language]['form-placeholder-email'];
+  document.querySelector('[name="from_phone"]').placeholder = translations[language]['form-placeholder-phone'];
+  document.querySelector('[name="message"]').placeholder = translations[language]['form-placeholder-message'];
+
+  // Store the selected language
+  localStorage.setItem('preferred-language', language);
+}
+
+// Language switcher event listener
+document.getElementById('lang').addEventListener('change', function() {
+  setLanguage(this.value);
+});
+
+// Set initial language
+const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+document.getElementById('lang').value = savedLanguage;
+setLanguage(savedLanguage);
