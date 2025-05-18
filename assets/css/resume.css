@@ -76,6 +76,9 @@
 
 .experience-item, .education-item {
   margin-bottom: 30px;
+  padding: 20px;
+  border-radius: var(--radius-12);
+  background: var(--bg-primary);
 }
 
 .experience-item:last-child, .education-item:last-child {
@@ -100,26 +103,40 @@
   margin-bottom: 10px;
 }
 
-.experience-item ul {
+.experience-item ul, .education-item ul {
   list-style-type: disc;
   margin-left: 20px;
   color: var(--color-secondary);
 }
 
-.experience-item li {
-  margin-bottom: 5px;
+.experience-item li, .education-item li {
+  margin-bottom: 8px;
   line-height: 1.6;
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  gap: 25px;
+}
+
+.skill-category {
+  padding: 20px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-12);
+  transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
 }
 
 .skill-category h3 {
   color: var(--color-primary);
   margin-bottom: 15px;
+  font-size: 1.1rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--raw-seinna);
 }
 
 .skill-category ul {
@@ -128,9 +145,10 @@
 
 .skill-category li {
   color: var(--color-secondary);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   padding-left: 20px;
   position: relative;
+  line-height: 1.4;
 }
 
 .skill-category li::before {
@@ -138,6 +156,7 @@
   color: var(--raw-seinna);
   position: absolute;
   left: 0;
+  font-size: 1.2em;
 }
 
 .resume-footer {
@@ -174,5 +193,14 @@
 
   .resume-section {
     padding: 20px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .experience-item, .education-item, .skill-category {
+    padding: 15px;
   }
 } 
