@@ -94,6 +94,13 @@ for (let i = 0; i < langBtns.length; i++) {
       }
     });
 
+    // Toggle the button box active state for sliding
+    if (i === 1) { // Es button clicked
+      langBox.classList.add("active");
+    } else { // En button clicked
+      langBox.classList.remove("active");
+    }
+
     // Get the language value and update
     const lang = this.getAttribute("value");
     setLanguage(lang);
@@ -104,10 +111,13 @@ for (let i = 0; i < langBtns.length; i++) {
 document.addEventListener('DOMContentLoaded', function() {
   const savedLanguage = localStorage.getItem('preferred-language') || 'en';
   
-  // Set active state on the correct button
-  langBtns.forEach(btn => {
+  // Set active state on the correct button and handle sliding
+  langBtns.forEach((btn, index) => {
     if (btn.getAttribute("value") === savedLanguage) {
       btn.classList.add("active");
+      if (index === 1) { // Es is active
+        langBox.classList.add("active");
+      }
     } else {
       btn.classList.remove("active");
     }

@@ -354,6 +354,10 @@ body.active { overflow: hidden; }
   z-index: -1;
 }
 
+.lang-toggle.active::before {
+  left: 45px;
+}
+
 .lang-toggle .toggle-btn {
   color: var(--color-primary);
   font-family: var(--ff-poppins);
