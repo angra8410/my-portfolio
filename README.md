@@ -1,25 +1,42 @@
-# My Portfolio
+# Antonio Gutierrez - Portfolio Website
 
-Welcome to my portfolio! This repository contains the source code for my personal website.
-
-## Live Preview
-
-Check out my portfolio here: [https://angra8410.github.io/MyPortfolio/](https://angra8410.github.io/MyPortfolio/)
+A modern, responsive portfolio website showcasing my work as a Data Analyst. Built with HTML, CSS, and JavaScript.
 
 ## Features
 
-- Showcase of my projects and achievements
-- Responsive design for mobile and desktop
-- Contact form for inquiries
+- Responsive design that works on desktop and mobile
+- Dark/Light theme toggle
+- Language switching between English and Spanish
+- Interactive skills section
+- Project showcase
+- Contact form with EmailJS integration
+- Downloadable resume
+- Modern UI with smooth animations
 
-## How to Use
+## Technologies Used
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/angra8410/MyPortfolio.git
-   ```
-2. Open `index.html` in your browser to view the site locally.
+- HTML5
+- CSS3
+- JavaScript
+- EmailJS for contact form
+- Ion Icons for icons
+- Google Fonts
 
-## Credits
+## Sections
 
-Designed and developed by [angra8410](https://github.com/angra8410).
+- Home/Hero
+- About
+- Skills & Tools
+- Portfolio Projects
+- Contact Form
+- Resume (separate page)
+
+## Contact
+
+- Email: antoineg84@hotmail.com
+- LinkedIn: [Antonio Gutierrez](https://www.linkedin.com/in/antoniogutierrez-datos/)
+- Twitter: [@angra84](https://x.com/angra84)
+
+## License
+
+© 2025 Antonio Gutierrez. All rights reserved.
