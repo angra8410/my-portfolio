@@ -124,9 +124,9 @@ window.onload = function() {
   // Initialize EmailJS
   emailjs.init({
     publicKey: "WUwT4rzcyJX7RPNOk",
-    blockHeadless: false, // Optional: set to true in production
-    limitRate: { // Optional: set rate limits
-      throttle: 10000, // 10s
+    blockHeadless: false,
+    limitRate: {
+      throttle: 10000
     }
   });
 
@@ -149,16 +149,17 @@ window.onload = function() {
     submitBtn.disabled = true;
 
     // Get form data for debugging
-    const formData = {
+    const templateParams = {
       from_name: this.querySelector('[name="from_name"]').value,
       from_email: this.querySelector('[name="from_email"]').value,
       from_phone: this.querySelector('[name="from_phone"]').value,
-      message: this.querySelector('[name="message"]').value
+      message: this.querySelector('[name="message"]').value,
+      to_name: 'Antonio'
     };
-    console.log("Form data:", formData);
+    console.log("Form data:", templateParams);
 
     // Send the email using EmailJS
-    emailjs.send('service_yifcdby', 'template_dgv7l6q', formData)
+    emailjs.send('service_yifcdby', 'template_dgv7l6q', templateParams)
       .then(function(response) {
         console.log("SUCCESS!", response.status, response.text);
         // Show success message
@@ -168,8 +169,8 @@ window.onload = function() {
       })
       .catch(function(error) {
         console.error("FAILED...", error);
-        // Show error message with more details
-        alert('Failed to send message: ' + (error.text || 'Unknown error'));
+        // Show detailed error message
+        alert('Failed to send message: ' + (error.text || 'Unknown error. Please check the console for details.'));
       })
       .finally(function() {
         // Reset button state
