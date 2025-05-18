@@ -1394,3 +1394,64 @@ textarea.input-field {
   .about-banner { max-width: 450px; }
 
 }
+
+/*-----------------------------------*\
+  #RESUME
+\*-----------------------------------*/
+
+.resume {
+  padding-block: var(--section-padding);
+}
+
+.resume-content {
+  margin-bottom: 50px;
+}
+
+.resume-timeline {
+  margin-top: 40px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  margin-bottom: 30px;
+  transition: var(--transition-1);
+}
+
+.timeline-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-2);
+}
+
+.timeline-period {
+  color: var(--orange-yellow-crayola);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.timeline-title {
+  color: var(--white-2);
+  margin-bottom: 5px;
+}
+
+.timeline-company {
+  color: var(--light-gray-70);
+  margin-bottom: 15px;
+}
+
+.timeline-list {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.timeline-list li {
+  color: var(--light-gray);
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.timeline-list li:last-child {
+  margin-bottom: 0;
+}
