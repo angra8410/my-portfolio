@@ -53,16 +53,24 @@ navToggleBtn.addEventListener("click", function () {
 const toggleBtnBox = document.querySelector("[data-toggle-box]");
 const toggleBtns = document.querySelectorAll("[data-toggle-btn]");
 const skillsBox = document.querySelector("[data-skills-box]");
-const toolsBox = document.querySelector("[data-tools-box]");
 
 for (let i = 0; i < toggleBtns.length; i++) {
   toggleBtns[i].addEventListener("click", function () {
+    // Toggle active state of buttons
+    toggleBtns.forEach((btn, index) => {
+      if (index === i) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
 
-    elemToggleFunc(toggleBtnBox);
-    for (let i = 0; i < toggleBtns.length; i++) { elemToggleFunc(toggleBtns[i]); }
-    elemToggleFunc(skillsBox);
-    elemToggleFunc(toolsBox);
-
+    // Toggle the skills box state
+    if (i === 1) { // Tools button clicked
+      skillsBox.classList.add("active");
+    } else { // Skills button clicked
+      skillsBox.classList.remove("active");
+    }
   });
 }
 

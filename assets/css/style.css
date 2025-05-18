@@ -642,33 +642,37 @@ main { overflow-x: hidden; }
   justify-content: center;
   align-items: center;
   gap: 15px;
-  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out, transform 0.5s ease-out;
 }
 
+/* When skills box is active (tools shown) */
 .skills-box.active .skills-list {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transform: translateY(20px);
 }
 
 .skills-box .tools-list {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transform: translateY(20px);
 }
 
 .skills-box.active .tools-list {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  animation: fadeIn 0.5s ease-out forwards;
+  transform: translateY(0);
 }
 
+/* When skills box is not active (skills shown) */
 .skills-box .skills-list {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  animation: fadeIn 0.5s ease-out forwards;
+  transform: translateY(0);
 }
 
 @keyframes fadeIn {
