@@ -120,36 +120,61 @@ if (localStorage.getItem("theme") === "light_theme") {
  * contact form
  */
 
-// Initialize EmailJS with your public key
-(function() {
-  emailjs.init("HTMuORnzBGwneriD6"); // Replace with your actual public key
-})();
+window.onload = function() {
+  // Initialize EmailJS
+  emailjs.init({
+    publicKey: "HTMuORnzBGwneriD6",
+    blockHeadless: false, // Optional: set to true in production
+    limitRate: { // Optional: set rate limits
+      throttle: 10000, // 10s
+    }
+  });
 
-// Handle form submission
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault();
+  // Get the contact form
+  const contactForm = document.getElementById('contact-form');
+  if (!contactForm) {
+    console.error("Contact form not found!");
+    return;
+  }
 
-  // Show loading state
-  const submitBtn = this.querySelector('button[type="submit"]');
-  const originalText = submitBtn.textContent;
-  submitBtn.textContent = 'Sending...';
-  submitBtn.disabled = true;
+  // Handle form submission
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    console.log("Form submission started");
 
-  // Send the email using EmailJS
-  emailjs.sendForm('service_yifcdby', 'template_dgv7l6q', this)
-    .then(function() {
-      // Show success message
-      alert('Message sent successfully!');
-      // Reset form
-      document.getElementById('contact-form').reset();
-    }, function(error) {
-      // Show error message
-      alert('Failed to send message. Please try again.');
-      console.error('EmailJS error:', error);
-    })
-    .finally(function() {
-      // Reset button state
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    });
-});
+    // Show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    // Get form data for debugging
+    const formData = {
+      from_name: this.querySelector('[name="from_name"]').value,
+      from_email: this.querySelector('[name="from_email"]').value,
+      from_phone: this.querySelector('[name="from_phone"]').value,
+      message: this.querySelector('[name="message"]').value
+    };
+    console.log("Form data:", formData);
+
+    // Send the email using EmailJS
+    emailjs.send('service_yifcdby', 'template_dgv7l6q', formData)
+      .then(function(response) {
+        console.log("SUCCESS!", response.status, response.text);
+        // Show success message
+        alert('Message sent successfully!');
+        // Reset form
+        contactForm.reset();
+      })
+      .catch(function(error) {
+        console.error("FAILED...", error);
+        // Show error message with more details
+        alert('Failed to send message: ' + (error.text || 'Unknown error'));
+      })
+      .finally(function() {
+        // Reset button state
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+  });
+};

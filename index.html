@@ -670,7 +670,7 @@
 
         </div>
 
-        <form class="contact-form" id="contact-form">
+        <form class="contact-form" id="contact-form" onsubmit="return false;" novalidate>
 
           <div class="form-wrapper">
             <label for="name" class="form-label">Name</label>
@@ -755,12 +755,14 @@
 
 
   <!-- 
+    - EmailJS SDK (moved before our custom script)
+  -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <!-- 
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
-
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <!-- 
     - ionicon link
