@@ -671,24 +671,6 @@ main { overflow-x: hidden; }
   z-index: 1;
 }
 
-.skills-toggle::before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  bottom: 5px;
-  width: 93px;
-  background: var(--raw-seinna);
-  border-radius: 100px;
-  transition: var(--transition-1);
-  z-index: -1;
-}
-
-.skills-toggle.active::before {
-  left: 98px;
-  width: 94px;
-}
-
 .toggle-btn {
   display: inline-block;
   color: var(--color-primary);
@@ -705,7 +687,9 @@ main { overflow-x: hidden; }
 }
 
 .toggle-btn.active {
+  background: var(--raw-seinna);
   color: var(--white);
+  z-index: 1;
 }
 
 .skills-box {
