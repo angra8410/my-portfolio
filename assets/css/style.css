@@ -690,9 +690,15 @@ main { overflow-x: hidden; }
 }
 
 .toggle-btn {
+  display: inline-block;
   color: var(--color-primary);
   font-family: var(--ff-poppins);
-  padding: 5px 25px;
+  padding: 0.75em 1.5em;
+  font-size: 1.1em;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 2em;
   transition: var(--transition-1);
   position: relative;
   z-index: 1;
